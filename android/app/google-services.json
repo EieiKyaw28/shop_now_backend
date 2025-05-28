@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "312492060007",
+    "project_id": "shopnow-5c7b1",
+    "storage_bucket": "shopnow-5c7b1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312492060007:android:801db66d3cdf5f8fef13c2",
+        "android_client_info": {
+          "package_name": "com.example.shop_now_backend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzahcn6OoTEHC7y7w62mWe9EUR54evHN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
