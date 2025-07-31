@@ -87,40 +87,35 @@ class _StockPageState extends ConsumerState<StockPage> {
                           'Product Name',
                           'Quantity',
                         ],
-                        data: [
-                          for (int i = 0; i < stock.length; i++)
-                            [
-                              Text("${i + 1}"),
-                              Text(
-                                stock[i].createdAt != null
-                                    ? DateFormat(
-                                      'yyyy-MMM-dd HH:mm a',
-                                    ).format(stock[i].createdAt!)
-                                    : '-',
-                              ),
-                              CommonAsyncWidget(
-                                provider: ref.watch(
-                                  getProductByIdProvider(
-                                    stock[i].productId ?? 0,
-                                  ),
+                        data:
+                            stock.asMap().entries.map<List<Widget>>((entry) {
+                              final i = entry.key;
+                              final item = entry.value;
+                              return [
+                                Text("${i + 1}"),
+                                Text(
+                                  item.createdAt != null
+                                      ? DateFormat(
+                                        'yyyy-MMM-dd HH:mm a',
+                                      ).format(item.createdAt!)
+                                      : '-',
                                 ),
-                                builder: (p) {
-                                  return Text(p.name);
-                                },
-                              ),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    numberFormatter(
-                                      stock[i].quantity.toString(),
-                                    ),
+                                CommonAsyncWidget(
+                                  provider: ref.watch(
+                                    getProductByIdProvider(item.productId ?? 0),
                                   ),
-                                ],
-                              ),
-                            ],
-                        ],
+                                  builder: (p) => Text(p.name),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      numberFormatter(item.quantity.toString()),
+                                    ),
+                                  ],
+                                ),
+                              ];
+                            }).toList(),
                       ),
                     );
                   },

@@ -3,11 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shop_now_backend/feature/category/domain/category.dart';
 import 'package:shop_now_backend/feature/product/domain/product.dart';
 import 'package:shop_now_backend/feature/product/domain/product_crud_model.dart';
 import 'package:shop_now_backend/main.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class ProductRepository {
   Stream<List<Product>> fectchProduct();
